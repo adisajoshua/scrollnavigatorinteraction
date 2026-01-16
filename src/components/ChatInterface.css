@@ -99,6 +99,14 @@
     min-width: 200px;
 }
 
+.message-line {
+    margin-bottom: var(--spacing-md);
+}
+
+.message-line:last-child {
+    margin-bottom: 0;
+}
+
 .message-meta {
     margin-top: var(--spacing-sm);
     display: flex;

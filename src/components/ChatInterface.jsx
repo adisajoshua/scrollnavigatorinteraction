@@ -25,7 +25,17 @@ const MESSAGES = [
     {
         id: 'msg-2',
         sender: 'ai',
-        text: 'DeFi (Decentralized Finance) uses blockchain technology to remove intermediaries like banks from financial transactions. Through smart contracts on networks like Solana, you can lend, borrow, and trade assets directly with other users.',
+        text: `DeFi (Decentralized Finance) uses blockchain technology to remove intermediaries like banks from financial transactions. Through smart contracts on networks like Solana, you can lend, borrow, and trade assets directly with other users.
+
+It operates on a foundational layer of **transparency** and **accessibility**. Unlike traditional banking, where your ability to access credit or yield depends on institutional approval, DeFi is permissionless. Anyone with an internet connection and a wallet like Phantom can participate.
+
+The "smart contracts" mentioned are essentially self-executing code. When you deposit USDC into a pool, the code handles the interest calculation and collateral management without a human manager. This drastically reduces overhead costs.
+
+Furthermore, DeFi enables **composability**, often referred to as "money legos." You can take a yield-bearing token from one protocol and use it as collateral in another, creating sophisticated financial strategies that were previously impossible.
+
+However, this freedom comes with responsibility. Users must manage their own private keys and understand the risks of the protocols they interact with. At RebelFi, we simplify this by vetting only the most secure opportunities.
+
+Finally, the ecosystem is evolving toward **Real World Assets (RWA)**. We are beginning to see tokenized versions of treasury bills and real estate, bridging the gap between digital native finance and the legacy economy.`,
         time: '03:45 PM',
     },
     {
@@ -49,7 +59,17 @@ const MESSAGES = [
     {
         id: 'msg-6',
         sender: 'ai',
-        text: 'Yes, like all DeFi, there are smart contract and platform risks. However, RebelFi protects your principal by diversifying across top-tier audited protocols and maintaining a $2M insurance fund for extreme market events.',
+        text: `Yes, like all DeFi, there are smart contract and platform risks. However, RebelFi protects your principal by diversifying across top-tier audited protocols and maintaining a $2M insurance fund for extreme market events.
+
+**Security is our primary directive.** We utilize a multi-pronged approach to risk mitigation. This starts with protocol vetting. We only integrate with "Blue Chip" Solana protocols that have passed multiple third-party audits.
+
+Secondly, we monitor **liquidity depth**. We ensure that the pools we use have enough volume to support large withdrawals without causing significant "de-pegging" of interest rates or asset values.
+
+Thirdly, we employ **Automated Risk Triggers**. If a protocol we are lending to shows signs of abnormal behavior—such as a sudden drop in Total Value Locked (TVL) or a smart contract upgrade that hasn't been verified—our system automatically migrates your funds to a safe "parking" vault.
+
+Fourthly, we maintain the **RebelFi Safety Module**. This is an on-chain insurance pool funded by a portion of the platform's protocol fees. In the case of a black swan event, these funds are the first line of defense for user principal.
+
+Finally, we encourage **diversification**. While Solana is our current focused network due to speed and cost, our roadmap includes multi-chain expansion to spread risk across different blockchain ecosystems.`,
         time: '03:50 PM',
     },
     {
@@ -73,7 +93,19 @@ const MESSAGES = [
     {
         id: 'msg-10',
         sender: 'ai',
-        text: 'We support JitoSOL and mSOL. Liquid staking allows you to earn SOL staking rewards (~7-8%) while keeping your assets "liquid" via a receipt token, which you can then use here in RebelFi to earn additional lending yield.',
+        text: `We support JitoSOL and mSOL. Liquid staking allows you to earn SOL staking rewards (~7-8%) while keeping your assets "liquid" via a receipt token, which you can then use here in RebelFi to earn additional lending yield.
+
+When you stake natively on a network, your tokens are locked. You cannot trade them or use them as collateral until you un-stake, which often takes several days. Liquid staking solves this.
+
+By using a provider like **Jito**, you receive "JitoSOL" in exchange for your staked SOL. This JitoSOL automatically increases in value relative to SOL as staking rewards accumulate.
+
+The "Magic" of RebelFi is **Yield Layering**. You can take that JitoSOL and deposit it into our lending vaults. Now you are earning ~8% from staking PLUS ~10% from lending, resulting in a significantly higher net APY.
+
+Furthermore, liquid staking helps **decentralize the network**. By spreading stake across many high-performing validators, these tokens ensure the Solana network remains censorship-resistant and robust.
+
+We also offer **Direct Reinvesting**. All rewards from your liquid staking tokens can be automatically compounded into your primary USDC lending strategy, maximizing the power of compound interest without manual intervention.
+
+It's important to note that liquid staking tokens carry their own smart contract risk, separate from the base protocol. We manage this by carefully monitoring the price "peg" of JitoSOL to ensure it stays 1:1 with its underlying value.`,
         time: '03:56 PM',
     },
     {
@@ -97,7 +129,29 @@ const MESSAGES = [
     {
         id: 'msg-14',
         sender: 'ai',
-        text: 'Currently, you are only in lending pools (USDC), so there is **zero risk** of Impermanent Loss. IL only occurs in Liquidity Provider (LP) pairs like SOL/USDC when price ratios change significantly.',
+        text: `Currently, you are only in lending pools (USDC), so there is **zero risk** of Impermanent Loss. IL only occurs in Liquidity Provider (LP) pairs like SOL/USDC when price ratios change significantly.
+
+To understand IL, imagine providing 50% SOL and 50% USDC to a pool on Raydium. If the price of SOL doubles, the pool's automated market maker (AMM) will sell your SOL to keep the 50/50 balance. You end up with more USDC but less SOL than if you had just held.
+
+This is why **Lending** is often preferred by risk-averse investors. There is no price-balancing mechanism. Your 11,000 USDC stays as 11,000 USDC (plus interest) regardless of what the market does.
+
+If you eventually decide to move into **Concentrated Liquidity** (like Orca Whirlpools), we will provide advanced IL hedging tools. These involve using a portion of your yield to buy protective options or short-term futures.
+
+But for now, your strategy is "Pure Yield." You are acting as the liquidity provider for borrowers, not for traders. This is the most stable interaction in the DeFi space.
+
+We also monitor the **Utilization Rate** of the lending pools. If the rate gets too high (near 100%), interest rates to lenders skyrocket, but liquidity for withdrawals becomes tight. Our system rebalances across pools to ensure you always have access to your funds.
+
+In summary: IL is a "Trader's Risk." Lending is a "Banker's Reward." Since you are taking the role of the banker in this interface, you can sleep soundly knowing your principal is not being traded away.
+
+Furthermore, we provide **Historical Simulation Tools**. You can see exactly how much IL you would have suffered in various market conditions compared to your safe lending strategy.
+
+This retrospective view helps users build the confidence to slowly transition a portion of their portfolio into higher-yield farming once they understand the mechanics.
+
+RebelFi is not just a platform; it's an educational journey. We want our users to become "Sophisticated DeFi Citizens," aware of every nuance in their financial decisions.
+
+Our next update will include **Real-time IL Calculators** for those who do decide to venture into LPing, providing a clear dashboard of "Hold vs. Farm" value.
+
+And finally, we are exploring **Backstop Liquidity** partnerships with major market makers to further reduce the volatility of the yields we provide to our core lending community.`,
         time: '04:03 PM',
     },
     {
@@ -133,7 +187,29 @@ const MESSAGES = [
     {
         id: 'msg-20',
         sender: 'ai',
-        text: 'Never store it digitally. We recommend writing it on physical paper and storing it in a fireproof safe. For large balances like yours ($11,000), consider using a hardware wallet like Ledger or Trezor for added security.',
+        text: `Never store it digitally. We recommend writing it on physical paper and storing it in a fireproof safe. For large balances like yours ($11,000), consider using a hardware wallet like Ledger or Trezor for added security.
+
+Digital security in crypto is a **battle of attrition**. Hackers use sophisticated malware, phishing attacks, and "SIM swaps" to target digital footprints. By moving your recovery phrase to physical paper, you break the chain of digital vulnerability.
+
+We suggest the **"Two-Location Rule"**. Store one copy of your phrase in a secure safe at home, and a second copy in a bank safety deposit box or another trusted physical location. This protects you against physical disasters like fire or flood.
+
+Furthermore, look into **Metal Seed Backups**. These are industrial-grade steel plates where you "stamp" or engrave your seed phrase. Unlike paper, steel can survive extreme heat and chemical exposure.
+
+For your specific wallet size, a **Multisig Setup** (like Squads on Solana) might be appropriate. This requires two or more private keys to authorize a single transaction, making it exponentially harder for a single point of failure to compromise your funds.
+
+Another layer is **Network Hygiene**. Only connect your primary "cold" wallet to trusted sites like RebelFi. Use a secondary "hot" wallet with smaller balances for exploring new or unverified protocols.
+
+Also, be wary of **Social Engineering**. No one from RebelFi (or any legitimate project) will EVER ask for your seed phrase. If someone DMs you offering "support" and asks for your phrase, they are 100% a scammer.
+
+Finally, consider the **"Heritage Plan"**. Ensure a trusted family member or lawyer knows where to find your backup instructions. In the event of an emergency, your legacy should be accessible to those you love.
+
+We are actually working on a **Legacy Module**. This would allow you to set a "Dead Man's Switch" that automatically transfers your assets to a designated secondary wallet if your primary wallet shows no activity for a specified period (e.g., 1 year).
+
+This feature leverages Solana's smart contract capabilities to provide peace of mind for long-term holders. You can define the recipients and the verification period directly in your dashboard.
+
+Beyond that, we provide **Periodic Security Audits** for our users. Our bot will periodically check your wallet for "toxic" token approvals or known malicious interactions and notify you to revoke them.
+
+This proactive approach ensures that your wallet remains a "Fortress of Value" while you benefit from the high yields of the Solana ecosystem.`,
         time: '04:13 PM',
     },
     {
@@ -145,7 +221,17 @@ const MESSAGES = [
     {
         id: 'msg-22',
         sender: 'ai',
-        text: 'We primarily use USDC (Circle) because it is fully reserved and audited in the US. While USDT is more liquid, USDC provides a higher degree of regulatory clarity and transparency for our risk management standards.',
+        text: `We primarily use USDC (Circle) because it is fully reserved and audited in the US. While USDT is more liquid, USDC provides a higher degree of regulatory clarity and transparency for our risk management standards.
+
+Stability in the crypto space is defined by **Backing Quality**. USDC is backed by cash and short-term US treasuries held in segregated accounts at US-regulated financial institutions. This makes it a "True Dollar" equivalent.
+
+We also monitor the **Velocity of Issuance**. By tracking the mint/burn cycles of stablecoins, we can anticipate market shifts. If we see a sudden rush out of one stablecoin into another, our autonomous vaults rebalance to the safer asset.
+
+For those seeking even more decentralization, we support **UXD** or **DAI**. However, these carry "algorithmic" or "over-collateralized" risks that are different from the "reserve-backed" risk of USDC.
+
+Every asset in RebelFi must pass our **Liquidity Stress Test**. Can $50M be swapped for USDC with less than 0.1% slippage? If the answer is no, we don't include it in our core strategies.
+
+Our goal is to provide a "Risk-Agnostic" experience. You shouldn't have to worry about the plumbing of the financial world; you should only focus on your growth. We handle the stablecoin monitoring 24/7.`,
         time: '04:16 PM',
     },
     {
