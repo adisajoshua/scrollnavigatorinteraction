@@ -1,0 +1,207 @@
+.sidebar {
+    width: 320px;
+    background-color: var(--bg-sidebar);
+    color: var(--color-text-white);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle separator */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-text-white);
+}
+
+.logo-icon {
+    color: var(--color-accent);
+    font-size: 24px;
+    margin-right: 8px;
+    font-weight: 800;
+}
+
+.interest-badge {
+    background-color: var(--bg-sidebar-card);
+    border-radius: var(--radius-sm);
+    /* Slightly rounded */
+    padding: 12px var(--spacing-md);
+    color: #79d69f;
+    /* Light green text */
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.interest-badge svg {
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+.interest-highlight {
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.user-card {
+    background-color: var(--bg-sidebar-card);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: #ddd;
+    object-fit: cover;
+}
+
+.user-info h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.user-email {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.balance-label {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.balance-amount {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.earning-info {
+    font-size: 12px;
+    color: #79d69f;
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: 40px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 20px;
+    /* Pill shape */
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.btn svg {
+    margin-left: 6px;
+    width: 16px;
+    height: 16px;
+}
+
+.btn-deposit {
+    background-color: #c9d800;
+    /* Adjusted Acid Yellow */
+    color: #1a2e35;
+}
+
+.btn-withdraw {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-text-white);
+}
+
+.transactions-section {
+    margin-top: auto;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 13px;
+}
+
+.tx-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.tx-deposit {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #c9d800;
+}
+
+.tx-withdraw {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff6b6b;
+}
+
+.tx-details {
+    flex: 1;
+}
+
+.tx-title {
+    font-weight: 500;
+    color: #e0e0e0;
+}
+
+.tx-sub {
+    color: var(--color-text-muted);
+    font-size: 11px;
+}
+
+.tx-amount {
+    font-weight: 600;
+    text-align: right;
+}
+
+.amount-positive {
+    color: #c9d800;
+}
+
+.amount-negative {
+    color: #e0e0e0;
+    /* Or red, design shows yellow for deposit, white/muted for withdraw? Design checks: Withdraw is white text "-$2,000.00" */
+}

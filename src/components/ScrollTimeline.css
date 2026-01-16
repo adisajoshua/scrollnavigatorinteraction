@@ -1,0 +1,141 @@
+.scroll-timeline {
+    position: fixed;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Compact line markers */
+.timeline-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.timeline-line {
+    width: 20px;
+    height: 2px;
+    background-color: #505050;
+    opacity: 0.3;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.timeline-line.active {
+    background-color: #868b0e;
+    width: 24px;
+    height: 3px;
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(134, 139, 14, 0.6);
+}
+
+/* Expanded panel */
+.timeline-expanded {
+    background-color: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 16px 12px;
+    min-width: 320px;
+    max-width: 380px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: expandPanel 0.25s ease-out;
+}
+
+@keyframes expandPanel {
+    from {
+        opacity: 0;
+        transform: translateX(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.timeline-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item.active {
+    background-color: rgba(134, 139, 14, 0.12);
+}
+
+.item-text {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 12px;
+}
+
+.timeline-item:hover .item-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.timeline-item.active .item-text {
+    color: #868b0e;
+    font-weight: 500;
+}
+
+.item-marker {
+    width: 20px;
+    height: 2px;
+    background-color: #505050;
+    opacity: 0.3;
+    border-radius: 1px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.timeline-item.active .item-marker {
+    background-color: #868b0e;
+    width: 24px;
+    height: 3px;
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(134, 139, 14, 0.6);
+}
+
+/* Smooth scroll for chat area */
+.messages-area {
+    scroll-behavior: smooth;
+}
+
+/* Active message highlight */
+.message-row {
+    transition: all 0.3s ease;
+}
+
+.message-row:target {
+    animation: highlightMessage 1.5s ease-out;
+}
+
+@keyframes highlightMessage {
+    0% {
+        background-color: rgba(134, 139, 14, 0.1);
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
