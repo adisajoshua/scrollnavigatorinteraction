@@ -1,0 +1,16 @@
+/**
+ * App Layout Styles
+ * 
+ * Purpose: Top-level layout container styles.
+ * 
+ * @author Antigravity
+ * @created 2026-01-16
+ */
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: var(--bg-main);
+}

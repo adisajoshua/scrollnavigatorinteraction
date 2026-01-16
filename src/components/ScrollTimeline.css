@@ -1,141 +1,130 @@
+/**
+ * Scroll Timeline Styles
+ * 
+ * Purpose: Interactive landmark navigation sidebar.
+ * Features: Metamorphosis transition between compact pill and expanded panel.
+ * 
+ * @author Antigravity
+ * @created 2026-01-16
+ */
+
 .scroll-timeline {
-    position: fixed;
-    right: 16px;
+    position: absolute;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+
+    /* 
+     * FIX: Minimize interpolation range to avoid "oval" artifact.
+     * 24px is enough for the compact pill at current padding/size.
+     */
+    border-radius: 24px;
+    padding: var(--spacing-sm);
+
+    background: hsla(188, 96%, 10%, 0.9);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+
+    /* FASTER & SNAPPY: Using a more aggressive cubic bezier */
+    transition:
+        border-radius 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+        padding 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.2s ease;
+
+    overflow: hidden;
 }
 
-/* Compact line markers */
-.timeline-compact {
+/* Hit area buffer remains for stability */
+.scroll-timeline::before {
+    content: '';
+    position: absolute;
+    inset: -20px -40px -20px -120px;
+    z-index: -1;
+}
+
+.scroll-timeline--expanded {
+    /* Precise transition to a soft rectangle */
+    border-radius: 12px;
+    padding: var(--spacing-md);
+    background: hsla(188, 96%, 10%, 0.96);
+}
+
+.scroll-timeline__inner {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--spacing-md);
     align-items: flex-end;
 }
 
-.timeline-line {
-    width: 20px;
-    height: 2px;
-    background-color: #505050;
-    opacity: 0.3;
-    border-radius: 1px;
-    transition: all 0.3s ease;
-}
-
-.timeline-line.active {
-    background-color: #868b0e;
-    width: 24px;
-    height: 3px;
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(134, 139, 14, 0.6);
-}
-
-/* Expanded panel */
-.timeline-expanded {
-    background-color: rgba(30, 30, 30, 0.95);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 16px 12px;
-    min-width: 320px;
-    max-width: 380px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    animation: expandPanel 0.25s ease-out;
-}
-
-@keyframes expandPanel {
-    from {
-        opacity: 0;
-        transform: translateX(20px) scale(0.95);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-    }
-}
-
-.timeline-item {
+.timeline-marker {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 12px;
-    margin-bottom: 4px;
-    border-radius: 8px;
+    gap: var(--spacing-md);
+    padding: 4px;
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
+    transition: background 0.2s ease;
+    text-align: right;
+    width: 100%;
+    justify-content: flex-end;
+    border-radius: var(--radius-sm);
 }
 
-.timeline-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+.timeline-marker:hover {
+    background: hsla(0, 0%, 100%, 0.05);
 }
 
-.timeline-item.active {
-    background-color: rgba(134, 139, 14, 0.12);
-}
-
-.item-text {
-    flex: 1;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 13px;
-    line-height: 1.4;
-    transition: color 0.2s ease;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 12px;
-}
-
-.timeline-item:hover .item-text {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.timeline-item.active .item-text {
-    color: #868b0e;
+.timeline-marker__text {
+    font-size: var(--text-xs);
     font-weight: 500;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+
+    /* Reveal animation */
+    opacity: 0;
+    max-width: 0;
+    transform: translateX(10px);
+    /* Snappier reveal to match container */
+    transition:
+        opacity 0.2s ease,
+        max-width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.25s ease;
 }
 
-.item-marker {
-    width: 20px;
-    height: 2px;
-    background-color: #505050;
-    opacity: 0.3;
-    border-radius: 1px;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.timeline-item.active .item-marker {
-    background-color: #868b0e;
-    width: 24px;
-    height: 3px;
+.scroll-timeline--expanded .timeline-marker__text {
     opacity: 1;
-    box-shadow: 0 0 8px rgba(134, 139, 14, 0.6);
+    max-width: 300px;
+    transform: translateX(0);
 }
 
-/* Smooth scroll for chat area */
-.messages-area {
-    scroll-behavior: smooth;
+.timeline-marker__indicator {
+    width: 6px;
+    height: 6px;
+    background-color: hsla(0, 0%, 100%, 0.3);
+    border-radius: var(--radius-full);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    flex-shrink: 0;
 }
 
-/* Active message highlight */
-.message-row {
-    transition: all 0.3s ease;
+.timeline-marker--active .timeline-marker__indicator {
+    background-color: var(--color-accent);
+    transform: scale(1.6);
+    box-shadow: 0 0 15px hsla(66, 73%, 53%, 0.5);
 }
 
-.message-row:target {
-    animation: highlightMessage 1.5s ease-out;
+.timeline-marker--active .timeline-marker__text {
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
-@keyframes highlightMessage {
-    0% {
-        background-color: rgba(134, 139, 14, 0.1);
-    }
+.timeline-marker:hover .timeline-marker__indicator {
+    background-color: var(--color-text-white);
+    transform: scale(1.3);
+}
 
-    100% {
-        background-color: transparent;
-    }
+.timeline-marker:hover .timeline-marker__text {
+    color: var(--color-text-white);
 }

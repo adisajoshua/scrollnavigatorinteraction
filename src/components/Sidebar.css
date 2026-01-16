@@ -1,207 +1,232 @@
+/**
+ * Sidebar Styles
+ * 
+ * Purpose: Layout and visual styling for the sidebar navigation.
+ * 
+ * @author Antigravity
+ * @created 2026-01-16
+ */
+
 .sidebar {
-    width: 320px;
+    width: 380px;
     background-color: var(--bg-sidebar);
     color: var(--color-text-white);
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
     flex-shrink: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtle separator */
+    border-right: 1px solid hsla(var(--sidebar-h), var(--sidebar-s), 20%, 0.1);
 }
 
-.logo {
+.logo-container {
     display: flex;
     align-items: center;
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: var(--spacing-xl);
-    color: var(--color-text-white);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
 }
 
 .logo-icon {
-    color: var(--color-accent);
-    font-size: 24px;
-    margin-right: 8px;
-    font-weight: 800;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-accent);
+    color: var(--bg-sidebar);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--text-md);
+    border-radius: var(--radius-sm);
+}
+
+.logo-text {
+    font-size: var(--text-md);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .interest-badge {
-    background-color: var(--bg-sidebar-card);
-    border-radius: var(--radius-sm);
-    /* Slightly rounded */
-    padding: 12px var(--spacing-md);
-    color: #79d69f;
-    /* Light green text */
-    font-size: 14px;
-    font-weight: 500;
+    background-color: hsla(66, 73%, 53%, 0.1);
+    color: var(--color-accent);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-lg);
-}
-
-.interest-badge svg {
-    margin-right: 8px;
-    opacity: 0.8;
+    gap: var(--spacing-sm);
+    font-size: var(--text-sm);
+    font-weight: 500;
 }
 
 .interest-highlight {
-    color: var(--color-accent);
     font-weight: 700;
-    margin-left: 4px;
 }
 
-.user-card {
+.user-profile {
     background-color: var(--bg-sidebar-card);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
 }
 
 .user-header {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-md);
+    gap: var(--spacing-md);
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 12px;
-    background-color: #ddd;
-    object-fit: cover;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-accent);
 }
 
-.user-info h3 {
-    font-size: 14px;
+.user-name {
+    font-size: var(--text-base);
     font-weight: 600;
-    margin-bottom: 2px;
+    color: var(--color-text-white);
 }
 
 .user-email {
-    font-size: 12px;
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
 }
 
 .balance-label {
-    font-size: 12px;
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
     display: flex;
     align-items: center;
-    margin-bottom: 4px;
+    gap: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .balance-amount {
-    font-size: 28px;
+    font-size: var(--text-2xl);
     font-weight: 700;
-    margin-bottom: 4px;
+    margin: var(--spacing-xs) 0;
 }
 
-.earning-info {
-    font-size: 12px;
-    color: #79d69f;
+.earning-forecast {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
 }
 
-.action-buttons {
+.apy-highlight {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.nav-actions {
     display: flex;
     gap: var(--spacing-md);
-    margin-bottom: 40px;
 }
 
 .btn {
     flex: 1;
-    padding: 12px;
-    border-radius: 20px;
-    /* Pill shape */
-    font-size: 14px;
-    font-weight: 600;
     display: flex;
-    justify-content: center;
     align-items: center;
-    transition: opacity 0.2s;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    height: 48px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--text-sm);
 }
 
-.btn svg {
-    margin-left: 6px;
-    width: 16px;
-    height: 16px;
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--bg-sidebar);
 }
 
-.btn-deposit {
-    background-color: #c9d800;
-    /* Adjusted Acid Yellow */
-    color: #1a2e35;
+.btn-primary:hover {
+    background-color: hsl(66, 73%, 45%);
+    transform: translateY(-1px);
 }
 
-.btn-withdraw {
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.btn-secondary {
+    border: 1px solid hsla(0, 0%, 100%, 0.2);
     color: var(--color-text-white);
 }
 
-.transactions-section {
-    margin-top: auto;
+.btn-secondary:hover {
+    background-color: hsla(0, 0%, 100%, 0.05);
 }
 
 .section-title {
-    font-size: 16px;
+    font-size: var(--text-sm);
     font-weight: 600;
+    color: var(--color-text-muted);
     margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
 }
 
 .transaction-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-md);
-    font-size: 13px;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    transition: background 0.2s ease;
+}
+
+.transaction-item:hover {
+    background-color: hsla(0, 0%, 100%, 0.03);
 }
 
 .tx-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 12px;
-    flex-shrink: 0;
 }
 
-.tx-deposit {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #c9d800;
+.tx-icon--deposit {
+    background-color: hsla(145, 63%, 66%, 0.1);
+    color: var(--color-success);
 }
 
-.tx-withdraw {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ff6b6b;
+.tx-icon--withdraw,
+.tx-icon--transfer {
+    background-color: hsla(0, 100%, 71%, 0.1);
+    color: var(--color-error);
 }
 
-.tx-details {
+.tx-info {
     flex: 1;
 }
 
 .tx-title {
+    font-size: var(--text-sm);
     font-weight: 500;
-    color: #e0e0e0;
 }
 
 .tx-sub {
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
-    font-size: 11px;
 }
 
 .tx-amount {
     font-weight: 600;
-    text-align: right;
+    font-size: var(--text-sm);
 }
 
-.amount-positive {
-    color: #c9d800;
+.tx-amount--positive {
+    color: var(--color-success);
 }
 
-.amount-negative {
-    color: #e0e0e0;
-    /* Or red, design shows yellow for deposit, white/muted for withdraw? Design checks: Withdraw is white text "-$2,000.00" */
+.tx-amount--negative {
+    color: var(--color-text-white);
 }

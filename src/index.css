@@ -1,29 +1,79 @@
+/**
+ * Global Styles & Design Tokens
+ * 
+ * Purpose: Centralized design system tokens and base resets for the workspace.
+ * Features: HSL color system, modular type scale (1.25), 4px spacing unit, accessibility focus styles.
+ * 
+ * @author Antigravity
+ * @created 2026-01-16
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Colors */
-  --bg-sidebar: #012b32;
-  --bg-sidebar-card: #044149;
-  --bg-main: #fdfdf2;
-  --bg-user-bubble: #868b0e;
-  --bg-ai-bubble: #252525;
-  --color-accent: #cddd2e;
-  --color-text-white: #ffffff;
-  --color-text-muted: #9eaebe;
-  --color-text-dark: #1a1a1a;
-  
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
+  /* Colors - HSL Refactor for consistent saturation/lightness control */
+  --sidebar-h: 188;
+  --sidebar-s: 96%;
+  --sidebar-l: 10%;
+
+  --bg-sidebar: hsl(var(--sidebar-h), var(--sidebar-s), var(--sidebar-l));
+  --bg-sidebar-card: hsl(var(--sidebar-h), var(--sidebar-s), calc(var(--sidebar-l) + 5%));
+  --bg-main: hsl(60, 60%, 97%);
+  --bg-user-bubble: hsl(62, 85%, 30%);
+  --bg-ai-bubble: hsl(0, 0%, 15%);
+  --color-accent: hsl(66, 73%, 53%);
+  --color-success: hsl(145, 63%, 66%);
+  --color-error: hsl(0, 100%, 71%);
+
+  --color-text-white: hsl(0, 0%, 100%);
+  --color-text-muted: hsl(210, 20%, 68%);
+  --color-text-dark: hsl(0, 0%, 10%);
+
+  /* Modular Type Scale (1.25 ratio) - Ensures mathematical harmony */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-md: 1.25rem;
+  /* 20px */
+  --text-lg: 1.563rem;
+  /* 25px */
+  --text-xl: 1.953rem;
+  /* 31px */
+  --text-2xl: 2.441rem;
+  /* 39px */
+
+  /* Spacing System (4px base unit) */
+  --spacing-xs: 0.25rem;
+  /* 4px */
+  --spacing-sm: 0.5rem;
+  /* 8px */
+  --spacing-md: 1rem;
+  /* 16px */
+  --spacing-lg: 1.5rem;
+  /* 24px */
+  --spacing-xl: 2rem;
+  /* 32px */
+  --spacing-2xl: 2.5rem;
+  /* 40px */
 
   /* Border Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
-  --radius-icon: 50%;
+  --radius-full: 9999px;
+
+  /* Global Focus Ring (Accessibility Requirement) */
+  --focus-ring: 2px solid var(--color-accent);
+  --focus-offset: 2px;
+}
+
+/* Accessibility: Visible Focus Rings for Keyboard Navigation */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
 }
 
 * {
@@ -33,7 +83,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-main);
   color: var(--color-text-dark);
   height: 100vh;
@@ -46,6 +96,8 @@ button {
   border: none;
   background: none;
   font-family: inherit;
+  transition: all 0.2s ease-out;
+  /* Global transition principle */
 }
 
 img {
