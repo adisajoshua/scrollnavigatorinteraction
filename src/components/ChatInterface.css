@@ -26,6 +26,14 @@
     scroll-behavior: smooth;
 }
 
+@media (max-width: 1024px) {
+    .messages-area {
+        padding-top: calc(64px + var(--spacing-lg));
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+}
+
 /* Hide scrollbar but keep functionality */
 .messages-area::-webkit-scrollbar {
     width: 6px;
@@ -45,6 +53,12 @@
     gap: var(--spacing-md);
     max-width: 80%;
     animation: fadeIn 0.3s ease-out;
+}
+
+@media (max-width: 1024px) {
+    .message-row {
+        max-width: 95%;
+    }
 }
 
 .message-row.user {

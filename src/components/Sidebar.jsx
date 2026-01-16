@@ -8,11 +8,11 @@
  * @created 2026-01-16
  */
 
-import React from 'react';
-import { Info, Plus, Wallet, ArrowDownLeft, ArrowUpRight } from 'lucide-react';
+import { Info, Plus, Wallet, ArrowDownLeft, ArrowUpRight, X } from 'lucide-react';
 import './Sidebar.css';
 
 const TRANSACTION_DATA = [
+    // ... (no changes to data)
     {
         id: 'tx-1',
         type: 'deposit',
@@ -39,9 +39,18 @@ const TRANSACTION_DATA = [
     }
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
     return (
-        <aside className="sidebar">
+        <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
+            {/* Mobile Close Button */}
+            <button
+                className="sidebar-close-btn"
+                onClick={onClose}
+                aria-label="Close sidebar"
+            >
+                <X size={24} />
+            </button>
+
             <div className="logo-container">
                 <div className="logo-icon">R</div>
                 <h1 className="logo-text">RebelFi</h1>
